@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
         let dx = 5 * Math.random()*2-1; //This gives a number from -1 to .99999
         let dy = 5 * Math.random()*2-1;
         
-        let x = parseInt(element.style.left) || 0;
-        let y = parseInt(element.style.top) || 0;
+        let x = parseInt(element.style.left) || 225;
+        let y = parseInt(element.style.top) || 175;
         setInterval(()=>{
             x+=dx;
             y+=dy;
