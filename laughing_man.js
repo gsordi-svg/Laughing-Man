@@ -16,10 +16,18 @@ document.addEventListener('DOMContentLoaded', ()=> {
         square.className = "square";
         box.appendChild(square);
     }
-    Array.from(box.children).forEach(() =>{
-        let dx = Math.random()*2-1; //This gives a number from -1 to .99999
-        let dy;
+    Array.from(box.children).forEach((element) =>{
+        let dx = 5 * Math.random()*2-1; //This gives a number from -1 to .99999
+        let dy = 5 * Math.random()*2-1;
+        
+        let x = parseInt(element.style.left) || 0;
+        let y = parseInt(element.style.top) || 0;
         setInterval(()=>{
+            x+=dx;
+            y+=dy;
+
+            element.style.left = x+"px";
+            element.style.top = y+"px";
 
         }, TIMER_SPEED)
     });
