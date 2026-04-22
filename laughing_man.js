@@ -17,8 +17,12 @@ document.addEventListener('DOMContentLoaded', ()=> {
         box.appendChild(square);
     }
     Array.from(box.children).forEach((element) =>{
-        let dx = 5 * Math.random()*2-1; //This gives a number from -1 to .99999
-        let dy = 5 * Math.random()*2-1;
+        const parent = element.parentElement;
+        const maxX =parent.clientWidth - element.clientWidth;
+        const MaxY =parent.clientHeight - element.clientHeight;
+
+        let dx = SPEED * (Math.random()*2-1); //This gives a number from -1 to .99999
+        let dy = SPEED * (Math.random()*2-1);
         
         let x = parseInt(element.style.left) || 225;
         let y = parseInt(element.style.top) || 175;
