@@ -21,6 +21,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         box.appendChild(img);
     }
+    function getColor() {
+        let red = parseInt(Math.random() * 256);
+        let green = parseInt(Math.random() * 256);
+        let blue = parseInt(Math.random() * 256);
+
+        return "rgb(" + red + "," + green + "," + blue + ")";
+    }
     Array.from(box.children).forEach((element) =>{
         const parent = element.parentElement;
         const maxX =parent.clientWidth - element.clientWidth;
