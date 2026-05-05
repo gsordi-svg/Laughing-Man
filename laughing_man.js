@@ -1,6 +1,8 @@
-const SQUARE_COUNT=3;
+const SQUARE_COUNT= 5;
 
-document.addEventListener('DOMContentLoaded', ()=> {
+document.addEventListener("DOMContentLoaded", function () {
+    let box = document.querySelector("#box");
+
     document.querySelector("#square").addEventListener("click, ()=>{ 
         alert("OMG YOU CLICKED ME!");
     
@@ -8,13 +10,14 @@ document.addEventListener('DOMContentLoaded', ()=> {
     let box = document.querySelector("#box");
 
     for(let i = 0;i < SQUARE_COUNT; i++{
-        //Make the element, but its not anything or on the page
-        let square = document.createElement('img');
+        let img = document.createElement("img");
+        
+        
         //Set the attributes/properties of that element]
-        square.src = "laughing_man.jpg";
-        square.alt = "Catch the lauging Man!";
-        square.className = "square";
-        box.appendChild(square);
+        img.src = "laughing_man.jpg";
+        img.alt = "Catch the lauging Man!";
+        img.className = "square";
+        box.appendChild(img);
     }
     Array.from(box.children).forEach((element) =>{
         const parent = element.parentElement;
