@@ -12,11 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
     for(let i = 0;i < SQUARE_COUNT; i++{
         let img = document.createElement("img");
         
-        
-        //Set the attributes/properties of that element]
         img.src = "laughing_man.jpg";
         img.alt = "Catch the lauging Man!";
         img.className = "square";
+
+        img.style.left = "225px";
+        img.style.top = "175px";
+
         box.appendChild(img);
     }
     Array.from(box.children).forEach((element) =>{
