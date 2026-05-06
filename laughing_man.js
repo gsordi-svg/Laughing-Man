@@ -1,4 +1,6 @@
 const SQUARE_COUNT= 5;
+const SPEED = 5;
+const TIMER_SPEED =50;
 
 document.addEventListener("DOMContentLoaded", function () {
     let box = document.querySelector("#box");
@@ -18,6 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         img.style.left = "225px";
         img.style.top = "175px";
+
+        img.addEventListener("mouseover", function() {
+            img.src = "orochimaru_50x50.jpg";
+        });
+
+        img.addEventListener("mouseout", function() {
+            img.src = "laughing_man.jpg";
+        });
 
         box.appendChild(img);
     }
@@ -58,6 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         element.style.left = x+"px";
         element.style.top = y+"px";
-        
+
     }, TIMER_SPEED)
 }
