@@ -4,14 +4,13 @@ const TIMER_SPEED =50;
 
 document.addEventListener("DOMContentLoaded", function () {
     let box = document.querySelector("#box");
+    let square = document.querySelector("#square");
 
-    document.querySelector("#square").addEventListener("click, ()=>{ 
-        alert("OMG YOU CLICKED ME!");
-    
+    square.addEventListener("mouseover" , function() {
+        square.style.backgroundColor = getColor();
     });
-    let box = document.querySelector("#box");
 
-    for(let i = 0;i < SQUARE_COUNT; i++{
+    for(let i = 0;i < SQUARE_COUNT; i++) {
         let img = document.createElement("img");
         
         img.src = "laughing_man.jpg";
@@ -30,7 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         box.appendChild(img);
+        moveSquare(img);
     }
+});
     function getColor() {
         let red = parseInt(Math.random() * 256);
         let green = parseInt(Math.random() * 256);
@@ -38,14 +39,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         return "rgb(" + red + "," + green + "," + blue + ")";
     }
-    function moveSquare(element){
+    function moveSquare(element) {
         let parent = element.parentElement;
 
         let x = parseInt(element.style.left);
         let y = parseInt(element.style.top);
 
-        let dx = SPEED * (Math.random()*2-1); //This gives a number from -1 to .99999
-        let dy = SPEED * (Math.random()*2-1);
+        let dx = SPEED * (Math.random() *2-1); //This gives a number from -1 to .99999
+        let dy = SPEED * (Math.random() *2-1);
 
         setInterval(function() {
             let maxX =parent.clientWidth - element.clientWidth;
@@ -53,12 +54,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
             x+=dx;
             y+=dy;
+
         if (x <= 0 || x >= maxX) {
             dx = -dx;
             element.style.borderColor = getColor();
             parent.style.borderColor = getColor();
             parent.style.backgroundColor = getColor();  `
         }
+
         if (y <= 0 || y >= maxY) {
             dy = -dy;
             element.style.borderColor = getColor();
@@ -69,5 +72,5 @@ document.addEventListener("DOMContentLoaded", function () {
         element.style.left = x+"px";
         element.style.top = y+"px";
 
-    }, TIMER_SPEED)
+    }, TIMER_SPEED);
 }
