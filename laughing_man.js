@@ -28,23 +28,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
         return "rgb(" + red + "," + green + "," + blue + ")";
     }
-    Array.from(box.children).forEach((element) =>{
-        const parent = element.parentElement;
-        const maxX =parent.clientWidth - element.clientWidth;
-        const MaxY =parent.clientHeight - element.clientHeight;
+    function moveSquare(element){
+        let parent = element.parentElement;
+
+        let x = parseInt(element.style.left);
+        let y = parseInt(element.style.top);
 
         let dx = SPEED * (Math.random()*2-1); //This gives a number from -1 to .99999
         let dy = SPEED * (Math.random()*2-1);
-        
-        let x = parseInt(element.style.left) || 225;
-        let y = parseInt(element.style.top) || 175;
-        setInterval(()=>{
+
+        setInterval(function() {
+            let maxX =parent.clientWidth - element.clientWidth;
+            let maxY =parent.clientHeight - element.clientHeight;
+
             x+=dx;
             y+=dy;
+        if (x <= 0 || x >= maxX) {
+            dx = -dx;
+            element.style.borderColor = getColor();
+            parent.style.borderColor = getColor();
+            parent.style.backgroundColor = getColor();  `
+        }
+        if (y <= 0 || y >= maxY) {
+            dy = -dy;
+            element.style.borderColor = getColor();
+            parent.style.borderColor = getColor();
+            parent.style.backgroundColor = getColor();
+        }
 
-            element.style.left = x+"px";
-            element.style.top = y+"px";
-
-        }, TIMER_SPEED)
-    });
-});
+        element.style.left = x+"px";
+        element.style.top = y+"px";
+        
+    }, TIMER_SPEED)
+}
