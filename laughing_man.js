@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
             dx = -dx;
             element.style.borderColor = getColor();
             parent.style.borderColor = getColor();
-            parent.style.backgroundColor = getColor();  `
+            parent.style.backgroundColor = getColor();
         }
 
         if (y <= 0 || y >= maxY) {
